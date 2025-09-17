@@ -3,6 +3,8 @@
 ![GitHub last commit (branch)](https://img.shields.io/github/last-commit/SabeeirSharrma/AnonForum/main)
 ![GitHub forks](https://img.shields.io/github/forks/SabeeirSharrma/AnonForum)
 ![GitHub Release](https://img.shields.io/github/v/release/SabeeirSharrma/AnonForum)
+  <a href="https://github.com/deepseek-ai/DeepSeek-V3/blob/main/LICENSE-CODE"><img alt="Code License"
+    src="https://img.shields.io/badge/Code_License-MIT-f5de53?&color=f5de53"/></a>
 
 
 **AnonForum** is a lightweight, locally-hosted forum and chat application designed for easy, private communication. Built with **Flask** and **Socket.IO**, it provides real-time chat functionality, with a **PyQt5** GUI for simple server management.
