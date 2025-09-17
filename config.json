@@ -1,0 +1,10 @@
+{
+  "HOST": "127.0.0.1",
+  "PORT": 8080,
+  "DEBUG": true,
+  "LIMITS": {
+    "USERNAME": 50,
+    "THREAD_TITLE": 200,
+    "POST_CONTENT": 1000
+  }
+}

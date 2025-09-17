@@ -1,0 +1,240 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background: #2c3e50;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.5rem;
+}
+
+#user-section {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#username-input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 4px;
+    max-width: 150px;
+}
+
+button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+button:hover {
+    background: #2980b9;
+}
+
+#current-user {
+    font-weight: bold;
+    color: #ecf0f1;
+}
+
+main {
+    display: flex;
+    flex: 1;
+}
+
+.sidebar {
+    width: 300px;
+    background: #ecf0f1;
+    padding: 1rem;
+    border-right: 1px solid #bdc3c7;
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.section h3 {
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+#new-thread-title {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+}
+
+#create-thread-btn {
+    width: 100%;
+    background: #27ae60;
+}
+
+#create-thread-btn:hover {
+    background: #229954;
+}
+
+#threads-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.thread-item {
+    padding: 0.75rem;
+    background: white;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #d5dbdb;
+    transition: background-color 0.2s;
+}
+
+.thread-item:hover {
+    background: #f8f9fa;
+}
+
+.thread-item.active {
+    background: #3498db;
+    color: white;
+}
+
+.main-content {
+    flex: 1;
+    padding: 1rem 2rem;
+    overflow-y: auto;
+}
+
+.thread-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #ecf0f1;
+}
+
+#back-btn {
+    background: #95a5a6;
+}
+
+#back-btn:hover {
+    background: #7f8c8d;
+}
+
+#posts-container {
+    max-height: 500px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+}
+
+.post {
+    background: white;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+    border-left: 4px solid #3498db;
+}
+
+.post-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #7f8c8d;
+}
+
+.post-author {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.post-content {
+    line-height: 1.4;
+    white-space: pre-wrap;
+}
+
+.post-form {
+    display: flex;
+    gap: 0.5rem;
+    align-items: flex-end;
+}
+
+#new-post-content {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #bdc3c7;
+    border-radius: 4px;
+    resize: vertical;
+    min-height: 80px;
+    font-family: inherit;
+}
+
+#send-post-btn {
+    background: #e74c3c;
+}
+
+#send-post-btn:hover {
+    background: #c0392b;
+}
+
+#welcome-view {
+    text-align: center;
+    padding: 3rem;
+    color: #7f8c8d;
+}
+
+.status-message {
+    font-style: italic;
+    color: #16a085;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    background: #d5f4e6;
+    border-radius: 4px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    
+    .sidebar {
+        width: 100%;
+        order: 2;
+    }
+    
+    .main-content {
+        order: 1;
+    }
+}

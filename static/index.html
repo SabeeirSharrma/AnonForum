@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Forum Chat</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AnonForum</h1>
+            <div id="user-section">
+                <input type="text" id="username-input" placeholder="Enter your username" maxlength="50">
+                <button id="set-username-btn">Set Username</button>
+                <span id="current-user" style="display: none;"></span>
+            </div>
+        </header>
+
+        <main>
+            <div class="sidebar">
+                <div class="section">
+                    <h3>Create New Thread</h3>
+                    <input type="text" id="new-thread-title" placeholder="Thread title" maxlength="200">
+                    <button id="create-thread-btn">Create Thread</button>
+                </div>
+                
+                <div class="section">
+                    <h3>Threads</h3>
+                    <div id="threads-list"></div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div id="thread-view" style="display: none;">
+                    <div class="thread-header">
+                        <h2 id="thread-title"></h2>
+                        <button id="back-btn">← Back to Threads</button>
+                    </div>
+                    
+                    <div id="posts-container"></div>
+                    
+                    <div class="post-form">
+                        <textarea id="new-post-content" placeholder="Write your message..." rows="3"></textarea>
+                        <button id="send-post-btn">Send Message</button>
+                    </div>
+                </div>
+                
+                <div id="welcome-view">
+                    <h2>Welcome to the Forum Chat!</h2>
+                    <p>Select a thread from the sidebar to start chatting, or create a new thread.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
