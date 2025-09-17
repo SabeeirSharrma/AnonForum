@@ -103,4 +103,6 @@ AnonForum provides a simple REST API for managing forum content:
 
 ### License 📜
 
-This project is open-source and available under the **MIT License**. Feel free to use, modify, and distribute it.
+You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the software, provided that you include the original copyright notice and this permission notice in all copies or substantial portions of the software.
+
+For full details, see the [LICENSE]([https://github.com/SabeeirSharrma/AnonForum/](https://github.com/SabeeirSharrma/AnonForum/blob/main/LICENSE)) file.
