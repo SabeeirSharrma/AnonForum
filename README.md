@@ -1,8 +1,8 @@
 # AnonForum
 
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/SabeeirSharrma/Basic-py-home-server/main)
-![GitHub forks](https://img.shields.io/github/forks/SabeeirSharrma/Basic-py-home-server)
-![GitHub Release](https://img.shields.io/github/v/release/SabeeirSharrma/basic-py-home-server)
+![GitHub last commit (branch)](https://img.shields.io/github/last-commit/SabeeirSharrma/AnonForum/main)
+![GitHub forks](https://img.shields.io/github/forks/SabeeirSharrma/AnonForum)
+![GitHub Release](https://img.shields.io/github/v/release/SabeeirSharrma/AnonForum)
 
 A lightweight, locally-hosted forum/chat application built with **Flask**, **Socket.IO**, **SQLite**, and a **PyQt5** GUI for server management.
 
