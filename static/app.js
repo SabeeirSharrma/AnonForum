@@ -51,7 +51,21 @@ class ForumChat {
         if (saved) {
             this.usernameInput.value = saved;
             this.setUsername();
+        } else {
+            // Generate a temporary username for anonymous users
+            const tempUsername = this.generateTempUsername();
+            this.usernameInput.value = tempUsername;
+            this.usernameInput.placeholder = tempUsername + ' (click to change)';
         }
+    }
+
+    generateTempUsername() {
+        const adjectives = ['Happy', 'Clever', 'Brave', 'Swift', 'Bright', 'Kind', 'Bold', 'Wise'];
+        const nouns = ['Panda', 'Eagle', 'Tiger', 'Dolphin', 'Phoenix', 'Wizard', 'Ninja', 'Pirate'];
+        const randomAdj = adjectives[Math.floor(Math.random() * adjectives.length)];
+        const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+        const randomNum = Math.floor(Math.random() * 999);
+        return `${randomAdj}${randomNoun}${randomNum}`;
     }
 
     setUsername() {
