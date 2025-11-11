@@ -34,6 +34,14 @@ class ForumChat {
             if (e.key === 'Enter') this.setUsername();
         });
 
+        // Add a button to continue as anonymous
+        const anonymousBtn = document.createElement('button');
+        anonymousBtn.textContent = 'Continue Anonymous';
+        anonymousBtn.style.marginLeft = '10px';
+        anonymousBtn.id = 'anonymous-btn';
+        this.setUsernameBtn.parentNode.insertBefore(anonymousBtn, this.setUsernameBtn.nextSibling);
+        anonymousBtn.addEventListener('click', () => this.continueAsAnonymous());
+
         this.createThreadBtn.addEventListener('click', () => this.createThread());
         this.newThreadTitle.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.createThread();
