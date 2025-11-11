@@ -35,18 +35,20 @@ def load_config():
     return default_cfg
 
 config = load_config()
-HOST = config.get("HOST", "0.0.0.0")
-PORT = int(config.get("PORT", 5000))
+HOST = config.get("HOST", config.get("host", "0.0.0.0"))
+PORT = int(config.get("PORT", config.get("port", 5000)))
 DEBUG = bool(config.get("DEBUG", True))
+DB_PATH = Path(config.get("db_path", "data/forum.db"))
 
 # --- Limits ---
 limits = config.get("LIMITS", {})
-MAX_USERNAME = int(limits.get("USERNAME", 50))
-MAX_THREAD_TITLE = int(limits.get("THREAD_TITLE", 200))
-MAX_POST_CONTENT = int(limits.get("POST_CONTENT", 1000))
+MAX_USERNAME = int(config.get("max_username_length", limits.get("USERNAME", 50)))
+MAX_THREAD_TITLE = int(limits.get("max_thread_title_length", limits.get("THREAD_TITLE", 200)))
+MAX_POST_CONTENT = int(config.get("max_content_length", limits.get("POST_CONTENT", 1000)))
 
 app = Flask(__name__, static_folder='static', static_url_path='')
-socketio = SocketIO(app, cors_allowed_origins=None, async_mode='eventlet')
+CORS(app)
+socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 # --- DB helpers ---
 def get_db_conn():
