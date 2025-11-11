@@ -144,9 +144,34 @@ class ForumServerUI(QWidget):
         time.sleep(3)
         self.start_server()
 
+    def update_server_status(self):
+        if self.server_running:
+            self.status_label.setText("Server Status: Running")
+            self.status_label.setStyleSheet("color: green; font-weight: bold;")
+            self.btn_start.setEnabled(False)
+            self.btn_stop.setEnabled(True)
+            self.btn_restart.setEnabled(True)
+        else:
+            self.status_label.setText("Server Status: Stopped")
+            self.status_label.setStyleSheet("color: red; font-weight: bold;")
+            self.btn_start.setEnabled(True)
+            self.btn_stop.setEnabled(False)
+            self.btn_restart.setEnabled(False)
+
+    def apply_config(self):
+        self.save_config()
+        if self.server_running:
+            self.append_log("Configuration applied. Restart server for changes to take effect.")
+        else:
+            self.append_log("Configuration saved.")
+
     def save_config(self):
         self.config["HOST"] = self.host_input.text()
         self.config["PORT"] = self.port_input.value()
+        self.config["host"] = self.host_input.text()
+        self.config["port"] = self.port_input.value()
+        self.config["max_username_length"] = self.username_limit.value()
+        self.config["max_content_length"] = self.post_content_limit.value()
         self.config["LIMITS"]["USERNAME"] = self.username_limit.value()
         self.config["LIMITS"]["THREAD_TITLE"] = self.thread_title_limit.value()
         self.config["LIMITS"]["POST_CONTENT"] = self.post_content_limit.value()
