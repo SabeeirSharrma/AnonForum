@@ -223,7 +223,7 @@ class ForumChat {
 
     async sendPost() {
         if (!this.currentThread || !this.currentUser) return;
-        
+
         const content = this.newPostContent.value.trim();
         if (!content) return;
 
@@ -237,11 +237,11 @@ class ForumChat {
                 })
             });
 
-            if (response.ok) {
+            const result = await response.json();
+            if (response.ok && result.success) {
                 this.newPostContent.value = '';
             } else {
-                const error = await response.json();
-                alert(error.error || 'Failed to send message');
+                alert(result.error || 'Failed to send message');
             }
         } catch (error) {
             console.error('Error sending post:', error);
