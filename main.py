@@ -23,11 +23,25 @@ class ForumServerUI(QWidget):
 
         # Server process
         self.server_proc = None
+        self.server_running = False
 
         # Layouts
         main_layout = QHBoxLayout()
         left_layout = QVBoxLayout()
         right_layout = QVBoxLayout()
+
+        # Server status section
+        self.status_label = QLabel("Server Status: Stopped")
+        self.status_label.setStyleSheet("color: red; font-weight: bold;")
+        left_layout.addWidget(self.status_label)
+
+        # Server control buttons
+        self.btn_start = QPushButton("Start Server")
+        self.btn_stop = QPushButton("Stop Server")
+        self.btn_restart = QPushButton("Restart Server")
+        left_layout.addWidget(self.btn_start)
+        left_layout.addWidget(self.btn_stop)
+        left_layout.addWidget(self.btn_restart)
 
         # Thread list
         self.thread_list = QListWidget()
