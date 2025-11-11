@@ -94,9 +94,15 @@ class ForumChat {
         this.initializeSocket();
     }
 
+    continueAsAnonymous() {
+        const tempUsername = this.generateTempUsername();
+        this.usernameInput.value = tempUsername;
+        this.setUsername();
+    }
+
     initializeSocket() {
         this.socket = io('/chat');
-        
+
         this.socket.on('connect', () => {
             console.log('Connected to chat server');
         });
