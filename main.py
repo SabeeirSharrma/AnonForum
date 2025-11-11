@@ -108,8 +108,7 @@ class ForumServerUI(QWidget):
         self.refresh_timer.timeout.connect(self.update_thread_list)
         self.refresh_timer.start(5000)  # every 5 seconds
 
-        # Start server on launch
-        self.start_server()
+        # Don't auto-start server on launch - let user control it
         self.update_thread_list()
 
     def append_log(self, msg):
