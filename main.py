@@ -86,11 +86,9 @@ class ForumServerUI(QWidget):
         right_layout.addWidget(QLabel("Max Post Content Length:"))
         right_layout.addWidget(self.post_content_limit)
 
-        # Server control buttons
-        self.btn_stop = QPushButton("Stop Server")
-        self.btn_restart = QPushButton("Restart Server")
-        right_layout.addWidget(self.btn_stop)
-        right_layout.addWidget(self.btn_restart)
+        # Apply config button
+        self.btn_apply_config = QPushButton("Apply Configuration")
+        right_layout.addWidget(self.btn_apply_config)
 
         # Set layouts
         main_layout.addLayout(left_layout, 1)
@@ -98,10 +96,12 @@ class ForumServerUI(QWidget):
         self.setLayout(main_layout)
 
         # Connect buttons
+        self.btn_start.clicked.connect(self.start_server)
         self.btn_delete_thread.clicked.connect(self.delete_selected_thread)
         self.btn_wipe_all.clicked.connect(self.wipe_all_threads)
         self.btn_stop.clicked.connect(self.stop_server)
         self.btn_restart.clicked.connect(self.restart_server)
+        self.btn_apply_config.clicked.connect(self.apply_config)
 
         # Timer for auto-refreshing threads
         self.refresh_timer = QTimer()
