@@ -141,11 +141,11 @@ def posts(thread_id):
     username = (data.get('username') or 'Anonymous').strip()
     content = (data.get('content') or '').strip()
     if not content:
-        return jsonify({'error': 'content required'}), 400
+        return jsonify({'success': False, 'error': 'content required'}), 400
     if len(username) > MAX_USERNAME:
-        return jsonify({'error': f'username too long (max {MAX_USERNAME})'}), 400
+        return jsonify({'success': False, 'error': f'username too long (max {MAX_USERNAME})'}), 400
     if len(content) > MAX_POST_CONTENT:
-        return jsonify({'error': f'content too long (max {MAX_POST_CONTENT})'}), 400
+        return jsonify({'success': False, 'error': f'content too long (max {MAX_POST_CONTENT})'}), 400
 
     now = datetime.utcnow().isoformat()
     cur.execute('INSERT INTO posts (thread_id, username, content, created_at) VALUES (?, ?, ?, ?)',
