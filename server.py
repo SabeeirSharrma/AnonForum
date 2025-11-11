@@ -103,15 +103,15 @@ def threads():
     data = request.get_json() or {}
     title = (data.get('title') or '').strip()
     if not title:
-        return jsonify({'error': 'title required'}), 400
+        return jsonify({'success': False, 'error': 'title required'}), 400
     if len(title) > MAX_THREAD_TITLE:
-        return jsonify({'error': f'title too long (max {MAX_THREAD_TITLE})'}), 400
+        return jsonify({'success': False, 'error': f'title too long (max {MAX_THREAD_TITLE})'}), 400
 
     # Prevent duplicate thread names
     cur.execute('SELECT id FROM threads WHERE title = ?', (title,))
     if cur.fetchone():
         conn.close()
-        return jsonify({'error': 'thread with this title already exists'}), 400
+        return jsonify({'success': False, 'error': 'thread with this title already exists'}), 409
 
     now = datetime.utcnow().isoformat()
     cur.execute('INSERT INTO threads (title, created_at) VALUES (?, ?)', (title, now))
