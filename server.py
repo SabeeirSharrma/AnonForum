@@ -185,7 +185,7 @@ def wipe_threads():
     conn.commit()
     conn.close()
     init_db()
-    return jsonify({'status': 'all threads wiped'}), 200
+    return jsonify({'success': True, 'data': {'status': 'all threads wiped'}}), 200
 
 # --- SocketIO ---
 @socketio.on('join', namespace='/chat')
