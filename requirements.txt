@@ -1,4 +1,7 @@
 Flask==2.3.3
-flask-socketio==5.3.6
+Flask-SocketIO==5.3.6
+PyQt5==5.15.9
+python-socketio==5.8.0
 eventlet==0.33.3
+requests==2.31.0
 python-dotenv==1.0.0
