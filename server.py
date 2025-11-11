@@ -157,7 +157,7 @@ def posts(thread_id):
     conn.close()
 
     socketio.emit('new_post', post, namespace='/chat', room=f'thread_{thread_id}')
-    return jsonify(post), 201
+    return jsonify({'success': True, 'data': post}), 201
 
 # --- Delete single thread ---
 @app.route('/api/threads/<int:thread_id>', methods=['DELETE'])
