@@ -121,6 +121,8 @@ class ForumServerUI(QWidget):
             return
         try:
             self.server_proc = subprocess.Popen([sys.executable, "server.py"])
+            self.server_running = True
+            self.update_server_status()
             self.append_log("Server started.")
         except Exception as e:
             self.append_log(f"Failed to start server: {e}")
