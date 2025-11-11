@@ -128,7 +128,7 @@ def posts(thread_id):
     cur.execute('SELECT id FROM threads WHERE id = ?', (thread_id,))
     if not cur.fetchone():
         conn.close()
-        return jsonify({'error': 'thread not found'}), 404
+        return jsonify({'success': False, 'error': 'thread not found'}), 404
 
     if request.method == 'GET':
         cur.execute('SELECT * FROM posts WHERE thread_id = ? ORDER BY id ASC', (thread_id,))
@@ -167,7 +167,7 @@ def delete_thread(thread_id):
     cur.execute('SELECT id FROM threads WHERE id = ?', (thread_id,))
     if not cur.fetchone():
         conn.close()
-        return jsonify({'error': 'thread not found'}), 404
+        return jsonify({'success': False, 'error': 'thread not found'}), 404
 
     cur.execute('DELETE FROM posts WHERE thread_id = ?', (thread_id,))
     cur.execute('DELETE FROM threads WHERE id = ?', (thread_id,))
