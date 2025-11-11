@@ -3,6 +3,7 @@ import json
 import sqlite3
 from flask import Flask, jsonify, request, send_from_directory
 from flask_socketio import SocketIO, emit, join_room, leave_room
+from flask_cors import CORS
 from datetime import datetime
 from pathlib import Path
 
