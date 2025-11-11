@@ -180,15 +180,18 @@ class ForumServerUI(QWidget):
         self.append_log("Config saved.")
 
     def update_thread_list(self):
+        if not self.server_running:
+            return
         try:
-            resp = requests.get(f"http://{self.config['HOST']}:{self.config['PORT']}/api/threads")
+            resp = requests.get(f"http://{self.config['HOST']}:{self.config['PORT']}/api/threads", timeout=2)
             threads = resp.json()
             self.thread_list.clear()
             for t in threads:
                 item_text = f"{t['title']} [{t['id']}]"
                 self.thread_list.addItem(item_text)
         except Exception as e:
-            self.append_log(f"Error fetching threads: {e}")
+            # Don't log errors if server is just starting/stopping
+            pass
 
     def delete_selected_thread(self):
         selected = self.thread_list.currentItem()
