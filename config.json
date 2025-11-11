@@ -1,10 +1,15 @@
 {
-  "HOST": "127.0.0.1",
-  "PORT": 8080,
-  "DEBUG": true,
-  "LIMITS": {
-    "USERNAME": 50,
-    "THREAD_TITLE": 200,
-    "POST_CONTENT": 1000
-  }
+    "host": "localhost",
+    "port": 5000,
+    "max_content_length": 1000,
+    "max_username_length": 50,
+    "db_path": "data/forum.db",
+    "HOST": "127.0.0.1",
+    "PORT": 8080,
+    "DEBUG": true,
+    "LIMITS": {
+        "USERNAME": 50,
+        "THREAD_TITLE": 200,
+        "POST_CONTENT": 1000
+    }
 }
