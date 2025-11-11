@@ -52,6 +52,8 @@ socketio = SocketIO(app, cors_allowed_origins="*", async_mode='eventlet')
 
 # --- DB helpers ---
 def get_db_conn():
+    # Ensure data directory exists
+    DB_PATH.parent.mkdir(exist_ok=True)
     conn = sqlite3.connect(str(DB_PATH))
     conn.row_factory = sqlite3.Row
     return conn
