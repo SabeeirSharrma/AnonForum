@@ -77,7 +77,7 @@ class ForumChat {
 
         this.currentUser = username;
         localStorage.setItem('forum-username', username);
-        
+
         this.usernameInput.style.display = 'none';
         this.setUsernameBtn.style.display = 'none';
         this.currentUserSpan.textContent = `Logged in as: ${username}`;
