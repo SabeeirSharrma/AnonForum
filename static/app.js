@@ -146,15 +146,15 @@ class ForumChat {
                 body: JSON.stringify({ title })
             });
 
-            if (response.ok) {
-                const newThread = await response.json();
+            const result = await response.json();
+            if (response.ok && result.success) {
+                const newThread = result.data;
                 this.threads.unshift(newThread);
                 this.renderThreadsList();
                 this.newThreadTitle.value = '';
                 this.selectThread(newThread);
             } else {
-                const error = await response.json();
-                alert(error.error || 'Failed to create thread');
+                alert(result.error || 'Failed to create thread');
             }
         } catch (error) {
             console.error('Error creating thread:', error);
