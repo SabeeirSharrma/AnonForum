@@ -132,6 +132,8 @@ class ForumServerUI(QWidget):
             self.server_proc.terminate()
             self.server_proc.wait()
             self.server_proc = None
+            self.server_running = False
+            self.update_server_status()
             self.append_log("Server stopped.")
         else:
             self.append_log("Server is not running.")
