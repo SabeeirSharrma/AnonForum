@@ -173,7 +173,7 @@ def delete_thread(thread_id):
     cur.execute('DELETE FROM threads WHERE id = ?', (thread_id,))
     conn.commit()
     conn.close()
-    return jsonify({'status': 'deleted'}), 200
+    return jsonify({'success': True, 'data': {'status': 'deleted'}}), 200
 
 # --- Wipe all threads ---
 @app.route('/api/threads/wipe', methods=['DELETE'])
