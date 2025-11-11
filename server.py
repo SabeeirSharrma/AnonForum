@@ -118,7 +118,7 @@ def threads():
     thread_id = cur.lastrowid
     conn.commit()
     conn.close()
-    return jsonify({'id': thread_id, 'title': title, 'created_at': now}), 201
+    return jsonify({'success': True, 'data': {'id': thread_id, 'title': title, 'created_at': now}}), 201
 
 # --- Posts API ---
 @app.route('/api/threads/<int:thread_id>/posts', methods=['GET', 'POST'])
